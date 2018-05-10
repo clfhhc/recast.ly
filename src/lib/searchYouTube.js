@@ -1,7 +1,6 @@
 var searchYouTube = (options, callback) => {
   // TODO
   var url = 'https://www.googleapis.com/youtube/v3/search';
-  console.log(options.key);
   $.ajax({
     url: url,
     type: 'GET',
@@ -16,11 +15,13 @@ var searchYouTube = (options, callback) => {
       embeddable: 'true'
     },
     success: function(data) {
-      console.log('success: ', data);
-      return callback(data);
+      
+      data = data.items;
+      console.log('Successfully fetched video list');
+      return callback ? callback(data) : data;
     },
     error: function(data) {
-      console.error('Failed to fetch message');
+      console.error('Failed to fetch video list');
     }
   });
 };
