@@ -5,13 +5,14 @@ class App extends React.Component {
       videos: this.props.videos,
       selectedVideo: this.props.videos[0]
     };
+    
+    this.handleVideoListEntryClick = this.handleVideoListEntryClick.bind(this);
   }
   
-  onVideoListClick(event) {
-    console.log(event);
-    // this.setState({
-    //   selectedVideo: 0
-    // }) 
+  handleVideoListEntryClick(event) {
+    this.setState({
+      selectedVideo: this.state.videos[event.currentTarget.id]
+    });
   }
 
   render() {
@@ -28,7 +29,7 @@ class App extends React.Component {
           </div>
           <div className="col-md-5">
             <div className = "videoListClass">
-              <VideoList onClick={this.onVideoListClick.bind(this)} videos={this.state.videos} />
+              <VideoList onVideoClick={this.handleVideoListEntryClick} videos={this.state.videos} />
             </div>
           </div>
         </div>
