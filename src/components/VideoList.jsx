@@ -1,7 +1,7 @@
 var VideoList = (props) =>(
   <div className="video-list">
-    {props.videos.length ? props.videos.map((video, index) => 
-      <VideoListEntry key={index} index={index} video={video} onVideoClick={props.onVideoClick} />)
+    {(props.videos && props.videos.length) ? props.videos.map((video, index) => 
+      <VideoListEntry key={index} video={video} onVideoClick={props.onVideoClick} />)
       : <div>Loading video list</div>
     }
   </div>
