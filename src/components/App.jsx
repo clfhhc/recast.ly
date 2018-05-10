@@ -3,7 +3,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       videos: this.props.videos,
-      selectedVideo: this.props.videos[0]
+      selectedVideo: this.props.videos ? this.props.videos[0] : null
     };
     
     this.handleVideoListEntryClick = this.handleVideoListEntryClick.bind(this);
